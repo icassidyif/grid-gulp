@@ -1,0 +1,26 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+img
+  max-width: 100%  
+@import "vars";
+@import "mixins";
+body
+  
+@import "grid";
+@import "icons";
+@import "header";
+[href^="skype:"]
+  font-style: italic
+  text-decoration: none
+  &:before
+    content: ""
+    display: inline-block
+    vertical-align: middle
+    +propToRem(margin-right, 5)
+    background: url('../img/skype.png')
+    +propToRem(width, 18)
+    +propToRem(height, 18)
+@import "footer";
+

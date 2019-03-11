@@ -1,0 +1,36 @@
+.row
+  display: flex
+  flex-wrap: wrap
+  margin: 0 #{-$gutter/2}
+.column
+  padding: 0 $gutter/2
+  width: 100%
+
+.wrapper
+  @extend .column
+  max-width: $max-width
+  margin: 0 auto
+.wrapper-no-pad
+  padding: 0
+
+
+//  atomic automatic step
+$step: 5
+$i: 1 
+@for $i from 1 through 5 
+ .m-b-#{$step*$i}
+  margin-bottom: $i*$step*1px
+
+$dims: ['phablet', 'tablet', 'laptop', 'large']
+.column-
+  @each $dim in $dims 
+    &#{$dim}
+      +breakpoint($dim)
+        @for $i from 1 through 2
+          @for $j from 2 to 7
+            $rest: $j % $i
+            @if $rest == 0
+              &-#{$i}-#{$j}
+                padding: 0 $gutter/2
+                width: percentage(1/$j)
+          
